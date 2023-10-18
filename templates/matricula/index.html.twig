@@ -1,0 +1,74 @@
+{% extends 'matricula/base.html.twig' %}
+
+{% block title %}Hello MatriculaController!{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    
+
+
+
+    <h1>Cursos Disponibles</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Creditos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.id }}</td>
+                    <td>{{ curso.nombre }}</td>
+                    <td>{{ curso.creditos }}</td>
+                    <td>
+                        {# <a href="{{ path('app_agregarcurso', {'idCurso': curso.id}) }}">Añadir Curso</a> #}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <br>
+    <br>
+    {{ form_start(form, {'attr': {'class': 'login-form'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit">Enviar</button>
+    {{ form_end(form) }}
+    <br>
+    <br>
+    <hr>
+
+
+
+    <h1>ACTUAL</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Alumno</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for matricula in matricula %}
+                <tr>
+                    <td>{{ matricula.id }}</td>
+                    <td>{{ matricula.getAlumnoIdAlumno().getNombre() }}</td>
+                    <td>{{ matricula.getCursoIdCurso().getNombreDelCurso() }}</td>
+                    <td>
+                        <a href="{{ path('eliminar_matricula', {'id': matricula.id}) }}">Eliminar</a>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

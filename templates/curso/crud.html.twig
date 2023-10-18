@@ -1,0 +1,36 @@
+{% extends 'curso/base.html.twig' %}
+
+{% block title %}CREANDO CURSOS{% endblock %}
+
+{% block body %}
+<h1>CREACION DE CURSOS</h1>
+<hr>
+<br>
+    <br>
+    {{ form_start(form, {'attr': {'class': 'login-form'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit">Enviar</button>
+    {{ form_end(form) }}
+<hr>
+<br>
+<h1>LISTANDO CURSOS</h1>
+<table class="styled-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Creditos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.id }}</td>
+                    <td>{{ curso.nombre }}</td>
+                    <td>{{ curso.creditos }}</td>
+                    <td><a href="{{ path('app_editarcurso', {'id': curso.id}) }}">editar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

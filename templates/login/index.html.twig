@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INICIO DE SESION{% endblock %}
+{% block stylesheets %}
+    {{ parent() }} {# Esto asegura que se incluyan los estilos del bloque 'stylesheets' de la plantilla base #}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    {# {{ form_start(form) }} #}
+    {{ form_start(form, {'attr': {'class': 'login-form'}}) }}
+    {{ form_widget(form) }}
+    <button type="submit">Ingresar</button>
+    {{ form_end(form) }}
+    
+
+{% endblock %}

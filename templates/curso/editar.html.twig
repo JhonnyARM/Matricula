@@ -1,0 +1,21 @@
+{% extends 'curso/base.html.twig' %}
+
+{% block title %}Editar Curso{% endblock %}
+
+{% block body %}
+    <h1>Editar CURSO</h1>
+    <hr>
+    <br>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <br>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    <br>
+    <a href="{{ path('app_crud') }}"> VOLVER AL CRUD </a>
+
+    {# <form method="post" action="{{ path('app_crud', {'id': usuario.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ usuario.id) }}">
+    <button class="btn">Delete</button> #}
+</form>
+{% endblock %}
